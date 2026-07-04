@@ -71,13 +71,18 @@ cd movie
 python -m venv .venv
 source .venv/bin/activate   # Mac/Linux
 .venv\Scripts\activate      # Windows
+
 3️⃣ Install dependencies
 pip install -r requirements.txt
+
 4️⃣ Run the Streamlit app
 streamlit run app.py
+
 🌐 Deployment (Streamlit Cloud)
 Push project to GitHub
+
 Go to https://streamlit.io/cloud
+
 Click New App
 Select:
 Repository: your repo
@@ -95,11 +100,13 @@ Genres
 Cast
 Keywords
 Overview
+
 🔥 Model Details
 Feature Engineering: Combined text features (genres, keywords, cast, overview)
 Vectorization: TF-IDF / Count Vectorization
 Similarity Metric: Cosine Similarity
 Output: Top 5 most similar movies
+
 ⚠️ Important Notes
 Do NOT upload large .pkl files to GitHub (>100MB limit)
 Ensure similarity.pkl is generated locally if needed
