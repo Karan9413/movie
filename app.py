@@ -1,42 +1,62 @@
-import streamlit as st
 import pickle
+import streamlit as st
+import requests
 import pandas as pd
 
+# Load data
 movies = pickle.load(open('movies.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
-st.title("🎬 Movie Recommender System")
+movies = movies.reset_index(drop=True)
+
+# Poster fetch
+def fetch_poster(movie_id):
+    try:
+        url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US"
+        response = requests.get(url, timeout=5)
+
+        if response.status_code != 200:
+            return ""
+
+        data = response.json()
+        poster_path = data.get('poster_path')
+
+        if poster_path:
+            return "https://image.tmdb.org/t/p/w500/" + poster_path
+
+        return ""
+
+    except:
+        return ""
+
+# Recommendation
+def recommend(movie):
+    index = movies[movies['title'] == movie].index[0]
+    distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
+
+    names = []
+    posters = []
+
+    for i in distances[1:6]:
+        movie_id = movies.iloc[i[0]].id   # ✅ FIXED HERE
+        names.append(movies.iloc[i[0]].title)
+        posters.append(fetch_poster(movie_id))
+
+    return names, posters
+
+
+# UI
+st.header("🎬 Movie Recommender System")
 
 movie_list = movies['title'].values
+selected_movie = st.selectbox("Select a movie", movie_list)
 
-option = st.selectbox(
-    'Select a movie',
-    movie_list
-)
+if st.button("Show Recommendation"):
+    names, posters = recommend(selected_movie)
 
-def recommend(movie, movies, similarity):
-    movie_index = movies[movies['title'] == movie].index[0]
+    cols = st.columns(5)
 
-    distances = similarity[movie_index]
-
-    movie_list_sorted = sorted(
-        list(enumerate(distances)),
-        reverse=True,
-        key=lambda x: x[1]
-    )
-
-    recommended_movies = []
-    for i in movie_list_sorted[1:6]:
-        movie_id=i[0]
-
-        recommended_movies.append(movies.iloc[i[0]].title)
-
-    return recommended_movies
-
-
-# button
-if st.button('Recommend'):
-    results = recommend(option, movies, similarity)
-    st.write("### Recommended Movies:")
-    for r in results:
-        st.write(r)
+    for i in range(5):
+        with cols[i]:
+            st.text(names[i])
+            st.image(posters[i])
