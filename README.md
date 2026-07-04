@@ -63,9 +63,10 @@ movie-recommender/
 
 ## 1️⃣ Clone the repository
 
-```bash
+
 git clone https://github.com/your-username/movie.git
 cd movie
+
 2️⃣ Create virtual environment (optional but recommended)
 python -m venv .venv
 source .venv/bin/activate   # Mac/Linux
