@@ -127,6 +127,7 @@ Karan Bhati
 ⭐ If you like this project
 
 Give it a ⭐ on GitHub and share it!
+<<<<<<< Updated upstream
 
 🚀 Future Improvements
 Add movie posters using TMDB API
@@ -134,3 +135,5 @@ Add search autocomplete
 Improve ranking system
 Hybrid recommendation (content + popularity)
 Deploy with Docker
+=======
+>>>>>>> Stashed changes
