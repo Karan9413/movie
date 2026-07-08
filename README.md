@@ -43,7 +43,7 @@ The system uses a **content-based recommendation approach**:
 
 # 📂 Project Structure
 
-
+```
 movie-recommender/
 │
 ├── app.py
@@ -55,7 +55,7 @@ movie-recommender/
 ├── README.md
 ├── LICENSE
 ├── movie-recommandastion.ipynb
-
+```
 
 ---
 
@@ -68,14 +68,14 @@ git clone https://github.com/your-username/movie.git
 cd movie
 ```
 
-##2️⃣ Create virtual environment (optional but recommended)
+## 2️⃣ Create virtual environment (optional but recommended)
 ```
 python -m venv .venv
 source .venv/bin/activate   # Mac/Linux
 .venv\Scripts\activate      # Windows
 ```
 
-##3️⃣ Install dependencies
+## 3️⃣ Install dependencies
 ```
 pip install -r requirements.txt
 ```
@@ -85,11 +85,11 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-##📊 Dataset Used
+## 📊 Dataset Used
 TMDB 5000 Movies Dataset
 TMDB 5000 Credits Dataset
 
-##These datasets include:
+## These datasets include:
 
 Movie titles
 Genres
@@ -97,20 +97,12 @@ Cast
 Keywords
 Overview
 
-##🔥 Model Details
+## 🔥 Model Details
 Feature Engineering: Combined text features (genres, keywords, cast, overview)
 Vectorization: TF-IDF / Count Vectorization
 Similarity Metric: Cosine Similarity
 Output: Top 5 most similar movies
 
-Always run app using:
-streamlit run app.py
-
-##📦 requirements.txt
-streamlit
-pandas
-numpy
-scikit-learn
 
 ##👨‍💻 Author
 Karan Bhati
