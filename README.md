@@ -94,9 +94,9 @@ pip install -r requirements.txt
 
 Run the notebook to generate the required files:
 
-```text
+```bash
 pip install notebook
-movie_recommendation.ipynb
+jupyter notebook movie_recommendation.ipynb
 ```
 
 This creates:
