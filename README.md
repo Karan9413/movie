@@ -95,9 +95,10 @@ pip install -r requirements.txt
 Run the notebook to generate the required files:
 
 ```bash
-pip install notebook
 jupyter notebook movie_recommendation.ipynb
 ```
+Run all cells:
+Kernel → Restart & Run All
 
 This creates:
 
