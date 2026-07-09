@@ -104,7 +104,16 @@ This creates:
 
 * `movies.pkl`
 * `similarity.pkl`
+* 
+After the files are created successfully:
 
+Close the Jupyter Notebook tab.
+
+Stop the Jupyter server by pressing:
+
+Ctrl + C
+
+in the terminal where Jupyter is running.
 ### 5. Run the application
 
 ```bash
