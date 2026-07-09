@@ -48,7 +48,6 @@ The recommendation system follows these steps:
 movie/
 │── app.py
 │── movie_recommendation.ipynb
-│── movies.pkl
 │── tmdb_5000_movies.csv
 │── tmdb_5000_credits.csv
 │── requirements.txt
@@ -56,7 +55,7 @@ movie/
 │── LICENSE
 ```
 
-> **Note:** `similarity.pkl` is intentionally **not included** in this repository because it exceeds GitHub's file size limit. It can be generated locally by running the notebook.
+> **Note:** `similarity.pkl` and `movies.pkl` are intentionally **not included** in this repository because it exceeds GitHub's file size limit. they can be generated locally by running the notebook.
 
 ---
 
