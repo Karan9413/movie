@@ -1,112 +1,159 @@
-# 🎬 Movie Recommender System (Streamlit)
+# 🎬 Movie Recommendation System
 
-A content-based movie recommendation system built using Machine Learning and deployed using Streamlit.  
-It recommends similar movies based on textual similarity of movie features like genres, keywords, cast, and overview.
-
----
-
-# 🚀 Live Demo
-*(Add your Streamlit Cloud link here after deployment)*
+A **content-based Movie Recommendation System** built with **Python**, **Scikit-learn**, and **Streamlit**. The application recommends movies similar to a selected title by analyzing textual features such as genres, keywords, cast, and movie overviews.
 
 ---
 
-# 📌 Features
+## 🚀 Features
 
-- 🎯 Select a movie from dropdown
-- 🎬 Get top 5 similar movie recommendations
-- ⚡ Fast and interactive Streamlit UI
-- 🧠 Content-based filtering using cosine similarity
-- 📊 Works on TMDB 5000 movie dataset
-
----
-
-# 🧠 How It Works
-
-The system uses a **content-based recommendation approach**:
-
-1. Movies are converted into feature vectors using text data
-2. Similarity between movies is computed using **Cosine Similarity**
-3. When a user selects a movie, top similar movies are returned
+* 🎯 Select a movie from a dropdown menu.
+* 🎬 Get the **Top 5** similar movie recommendations.
+* 🧠 Content-based filtering using **Cosine Similarity**.
+* ⚡ Fast and interactive web interface built with Streamlit.
+* 📊 Powered by the TMDB 5000 Movies dataset.
 
 ---
 
-# 🛠️ Tech Stack
+## 🧠 How It Works
 
-- Python 🐍
-- Pandas
-- NumPy
-- Scikit-learn
-- Streamlit
-- Pickle
+The recommendation system follows these steps:
+
+1. Load the TMDB movie and credits datasets.
+2. Combine important textual features such as:
+
+   * Genres
+   * Keywords
+   * Cast
+   * Overview
+3. Convert the combined text into numerical vectors using **CountVectorizer** or **TF-IDF Vectorizer**.
+4. Calculate the similarity between movies using **Cosine Similarity**.
+5. When a movie is selected, return the **Top 5** most similar movies.
 
 ---
 
-# 📂 Project Structure
+## 🛠️ Tech Stack
 
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* Streamlit
+* Pickle
+
+---
+
+## 📂 Project Structure
+
+```text
+movie/
+│── app.py
+│── movie_recommendation.ipynb
+│── movies.pkl
+│── tmdb_5000_movies.csv
+│── tmdb_5000_credits.csv
+│── requirements.txt
+│── README.md
+│── LICENSE
 ```
-movie-recommender/
-│
-├── app.py
-├── movies.pkl
-├── similarity.pkl (optional / local only)
-├── tmdb_5000_movies.csv
-├── tmdb_5000_credits.csv
-├── requirements.txt
-├── README.md
-├── LICENSE
-├── movie-recommandastion.ipynb
-```
+
+> **Note:** `similarity.pkl` is intentionally **not included** in this repository because it exceeds GitHub's file size limit. It can be generated locally by running the notebook.
 
 ---
 
-# ⚙️ Installation & Setup
+## ⚙️ Installation
 
-## 1️⃣ Clone the repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Karan9413/movie.git
 cd movie
 ```
 
-## 2️⃣ Create virtual environment (optional but recommended)
-```
+### 2. Create a virtual environment
+
+**Windows**
+
+```bash
 python -m venv .venv
-source .venv/bin/activate   # Mac/Linux
-.venv\Scripts\activate      # Windows
+.venv\Scripts\activate
 ```
 
-## 3️⃣ Install dependencies
+**macOS / Linux**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 ```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-## 4️⃣ Run the Streamlit app
+### 4. Generate the model files
+
+Run the notebook to generate the required files:
+
+```text
+movie_recommendation.ipynb
 ```
+
+This creates:
+
+* `movies.pkl`
+* `similarity.pkl`
+
+### 5. Run the application
+
+```bash
 streamlit run app.py
 ```
 
-## 📊 Dataset Used
-TMDB 5000 Movies Dataset
-TMDB 5000 Credits Dataset
+---
 
-## These datasets include:
+## 📊 Dataset
 
-Movie titles
-Genres
-Cast
-Keywords
-Overview
+This project uses the **TMDB 5000 Movie Dataset**, including:
 
-## 🔥 Model Details
-Feature Engineering: Combined text features (genres, keywords, cast, overview)
-Vectorization: TF-IDF / Count Vectorization
-Similarity Metric: Cosine Similarity
-Output: Top 5 most similar movies
+* Movie Titles
+* Genres
+* Keywords
+* Cast
+* Crew
+* Overview
 
+---
 
-##👨‍💻 Author
-Karan Bhati
+## 🔥 Machine Learning Model
 
-⭐ If you like this project
+* **Recommendation Type:** Content-Based Filtering
+* **Feature Engineering:** Combined genres, keywords, cast, and overview
+* **Vectorization:** CountVectorizer / TF-IDF
+* **Similarity Metric:** Cosine Similarity
+* **Output:** Top 5 similar movies
 
-Give it a ⭐ on GitHub and share it!
+---
+
+## 🚀 Future Improvements
+
+* Display movie posters using the TMDB API.
+* Add search functionality.
+* Recommend movies by genre.
+* Build a hybrid recommendation system.
+* Add user ratings and personalized recommendations.
+* Deploy the application on Streamlit Community Cloud.
+
+---
+
+## 👨‍💻 Author
+
+**Karan Bhati**
+
+GitHub: https://github.com/Karan9413
+
+---
+
+## ⭐ Support
+
+If you found this project useful, please consider giving it a **⭐ Star** on GitHub. Your support is appreciated!
