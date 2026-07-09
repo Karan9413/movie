@@ -96,6 +96,7 @@ pip install -r requirements.txt
 Run the notebook to generate the required files:
 
 ```text
+pip install notebook
 movie_recommendation.ipynb
 ```
 
